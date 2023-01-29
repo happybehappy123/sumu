@@ -1,0 +1,25 @@
+•	VCC  ----------  5V (Pin 2/Pin 4)
+•	GND  -----------  GND (Pin 6)
+•	D0  -------  GPIO 23 (Pin 16)
+
+
+	Code:
+
+Import RPi.GPIO as GPIO
+Import time
+GPIO.setmode(GPIO.BOARD)
+
+SENSOR = 16
+GPIO.setup(SENSOR,GPIO.IN)
+try:
+	while True:
+		if  GPIO.input ( SENSOR ) :
+			print (“Sound Detected”)
+		else:
+			print (“No Sound Detected” )
+			
+		time.sleep(0.2)
+		
+except KeyboardInterrupt :
+	GPIO.cleanup()
+
