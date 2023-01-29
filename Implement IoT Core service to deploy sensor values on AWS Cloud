@@ -1,0 +1,37 @@
+go to amazon aws
+search iot core
+• From here go to All device > Things
+click on things
+
+Click on create thing.give a thing name.create a thing type.
+Go to next and you will get a certification generation gateway
+Click on auto generate and go to next
+Go to create policy where a new tab will open where you can create the policy and 
+attactch with raspberry pi
+Give a name for my case I am using ron-raspberry-policy
+after that set the polcy action to * and policy resource to *
+now close the TAB and go to previous tab
+select ron-raspberry-policy and then create thing
+Now as shown download device certificate + Public key + private key
+• Then click on Done
+• Go to certificates and attach to thing you created
+Select action and then select Attatch to a thing
+Type your thing name select and click on attatch to thing
+Clone the repo https://github.com/binaryupdates/aws-raspberrypi
+The repo consists of above files
+• now COPY the three files here
+
+Now change the piython.py to this code where change file of certificate and change 
+the of private key
+Go to settings in aws and in the enpoint you will find the url of yours aws settings for 
+endpoint
+Copy the end point and paste in
+client.connect("a1cqo4hn4vc7c8-ats.iot.ap-southeast-1.amazonaws.com", 8883, 60) 
+#Taken from REST API endpoint - Use your own.
+• you need to install paho-mqtt pypi
+pip install paho-mqtt
+• run the code and you will see this kind of output
+TO if its working go to AWS and click on MQTT Test Client and type the topic name 
+device/data and click on
+Click on subscribe
+The output will be like this
