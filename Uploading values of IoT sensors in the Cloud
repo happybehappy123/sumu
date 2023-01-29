@@ -1,0 +1,90 @@
+Run the sensor code in a thonny file.
+take another terminal and run Python flask webframework code
+
+from flask import Flask,request,jsonify,render_template,redirect
+
+app = Flask(__name__)
+gloabl_variable = 0
+
+@app.route("/")
+def hello_world():
+    return redirect('/multidata')
+    # return render_template('auto_update.html')
+
+@app.route('/get_multiple_data')
+def get_multidata():
+    return jsonify(datas[::-1])
+
+@app.route('/multidata')
+def multidata():
+    return render_template('multiple_ready.html')
+
+@app.route('/set_data',methods=['GET','POST'])
+def set_data():
+    print(request.args.to_dict())
+    global gloabl_variable
+    gloabl_variable = request.args.get('distance')
+    return 'thank you'
+
+if __name__=='__main__':
+    app.run(host='0.0.0.0',debug= True)
+    
+
+open AWS. Search ec2. launch instance. create the instance(key pair generation etc). lauch instance. select instances. click the selected instance. connect
+
+After connecting a new tab appears.in that type:
+>sudo su -
+>yum update -y
+>yum install -y httpd
+>mkdir temp
+>cd temp
+>nano sample.html
+copy the following code and paaste it in the sample.html file
+
+   
+ basic html page syntax
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto update page</title>
+</head>
+<body>
+    <center>
+        <h1>Distance</h1>
+        <h2 id = 'rondechaka'>0</h2>
+    </center>
+    <script>
+
+        var element = document.getElementById("rondechaka"); 
+        setInterval(function() { 
+            fetch('get_data')
+                .then(res => res.json())
+                .then(data => element.innerHTML=data.distance)
+        }, 500);
+    </script>
+</body>
+</html>
+
+
+
+save the file.
+
+
+in the terminal 
+>mv * /var/www/html
+>cd /var/www/html
+>systemctl status httpd
+>systemctl enable httpd
+>systemctl start httpd
+>systemctl status httpd
+
+
+from ec2 server copy public ip and run it on browser.
+
+>exit
+
+
