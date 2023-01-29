@@ -1,0 +1,14 @@
+This can be done using Wireshark.
+●	Open Wireshark
+●	Select the network interface you want to sniff
+●	Click on start button
+●	Open your web browser and type in http://www.techpanda.org/
+●	The login email is admin@google.com and the password is Password2010
+●	Click on submit button
+●	A successful logon should give you the dashboard
+●	Go back to Wireshark and stop the live capture
+●	Filter for HTTP protocol results only using the filter textbox
+●	Locate the Info column and look for entries with the HTTP verb POST and click on it
+●	Just below the log entries, there is a panel with a summary of captured data. Look for the summary that says Line-based text data: application/x-www-form-urlencoded
+●	You will be able to view the plaintext values of all the POST variables submitted to the server via HTTP protocol.
+
