@@ -1,0 +1,21 @@
+import RPi.GPIO as GPIO
+import time
+GPIO.setmode(GPIO.BCM)
+
+GPIO.setwarnings(False)
+LIGHT_PIN=24
+GPIO.setup(LIGT_PIN, GPIO.IN)
+IOId= not GPIO.input(LIGHT_PIN)
+print('starting ldr module')
+time.sleep(0.2)
+print(" ")                                                                while True:
+                                                                                  if GPIO.input(LIGHT_PIN):
+                                                                                         
+while True:                                                                         print('no light')
+          if GPIO.input(LIGHT_PIN)<=10:
+               if GPIO.input(LIGHT_PIN):
+                  print('\u263e')
+               else:
+                  print('\u263c')
+IOId=GPIO.input(LIGHT_PIN) 
+time.sleep(0.2)                    
