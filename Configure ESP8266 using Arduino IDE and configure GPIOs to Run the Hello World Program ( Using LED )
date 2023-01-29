@@ -1,0 +1,25 @@
+In order to use Arduino IDE to program the NodeMCU, you have to introduce it to the software at first.
+To do this copy the following code and follow the steps below:
+http://arduino.esp8266.com/stable/package_esp8266com_index.json
+Step1:
+Choose Preferences in the File menu and enter the copied code in Additional Board Manager URLs part. Then press OK.
+Step2:
+Search the word ESP8266 in Boards>boards manager from the Tools menu. Then install ESP8266 boards. After complete installation, you will see the INSTALLED label on ESP8266 boards. After these two steps, you can see ESP8266 based boards such as NodeMCU in your Arduino IDE boards list, and you can choose your desired board to upload the code.
+
+
+LED Blinking:
+void setup() {
+  pinMode(D0, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(D0, HIGH);  
+  delay(250);                     
+  digitalWrite(D0, LOW);   
+  delay(250);                      
+}
+
+Output:
+
+The LED will blink in a delayed manner. LED connected to the pin D0 is used in this experiment.
+
