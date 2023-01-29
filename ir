@@ -1,0 +1,33 @@
+#•	VCC   ----------   5V (Pin 2/Pin 4)
+#•	GND --------     GND (Pin 6) 
+#•	DATA    ------    GPIO 23 (Pin 16)
+#•	Cathode of LED -------  GND (Pin 20)
+#•	Anode of LED --------    GPIO 24 (Pin 18)
+
+
+
+
+
+import RPi.GPIO as GPIO
+import time
+GPIO.setmode(GPIO.BCM)
+
+sensor = 16
+#buzzer = 18
+
+GPIO.setup(sensor,GPIO.IN)
+#GPIO.setup(buzzer,GPIO.OUT)
+#GPIO.output(buzzer,False)
+#print("IR Sensor Ready.....")
+#print(" ")
+while True:
+        if not GPIO.input(sensor):
+#print(GPIO.input(sensor))
+#GPIO.output(buzzer,True)
+
+      print("Object Detected")   
+      time.sleep(0.5)
+else:
+      print("Object not Deteceted")
+
+time.sleep(0.5)
